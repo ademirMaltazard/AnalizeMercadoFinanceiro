@@ -47,3 +47,27 @@ pesos, bias = treinoPerceptron(entradas_or, saida_or)
 print(pesos, bias)
 
 print(prever([0, 1], pesos, bias))
+
+
+dados_csv = pd.read_csv('data_banknote_authentication.txt', header = None)
+print(dados_csv)
+
+#SEPARAR OS DADOS DE ENTRADA E SAIDA
+x_dados = dados_csv.iloc[:, 0: 4].values
+print("x: ", x_dados)
+Y_dados = dados_csv.iloc[:, 4].values
+print('y: ', Y_dados)
+
+pesos, bias = treinoPerceptron(x_dados, Y_dados, max_epocas=200)
+print('pesos:', pesos, '\nbias: ', bias)
+
+def avaliar(entrada_dados, saida_esperada, pesos, bias):
+    previsoes = [prever(entrada, pesos, bias) for entrada in entrada_dados]
+    acuracia = np.mean(previsoes == saida_esperada)
+    return acuracia
+
+resultado = avaliar(x_dados, Y_dados, pesos, bias)
+print(resultado)
+
+
+
