@@ -5,7 +5,7 @@ import pandas as pd
 
 # FUNÇÃO DE ATIVAÇÃO
 def funcaoDegrau(valor):
-    if valor <= 0:
+    if valor >= 0:
         return 1
     else:
         return 0
@@ -28,7 +28,7 @@ def treinoPerceptron(entrada_treino, saida, taxa_aprendizagem = 0.1, max_epocas 
             pesos += taxa_aprendizagem * erro * entrada
             bias += taxa_aprendizagem * erro
 
-    return 0
+    return pesos, bias
 
 dados_or = pd.DataFrame({
     'entrada1': [0, 0, 1, 1],
@@ -42,3 +42,8 @@ entradas_or = dados_or[['entrada1', 'entrada2']].values
 saida_or = dados_or['saida'].values
 
 print(entradas_or, '\n', saida_or)
+
+pesos, bias = treinoPerceptron(entradas_or, saida_or)
+print(pesos, bias)
+
+print(prever([0, 1], pesos, bias))
