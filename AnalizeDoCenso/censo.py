@@ -42,9 +42,10 @@ print(y_censo)
 
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
-# Criar o OneHotEncoder para as colunas es
+# Criar o OneHotEncoder para as colunas especificas
+
 cod_OneHotEncoder = ColumnTransformer(
-    transformers=[('OneHot', OneHotEncoder(),[1,3,5,6,7,8,9,13])], 
+    transformers=[('OneHot', OneHotEncoder(sparse_output=False),[1,3,5,6,7,8,9,13])], 
     remainder='passthrough'
     )
 
