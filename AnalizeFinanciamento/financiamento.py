@@ -72,6 +72,11 @@ print('Dado Normalizado:\n', x_financiamento)
 # separar treino e teste
 x_financiamento_treino, x_financiamento_teste, y_financiamento_treino, y_financiamento_teste = train_test_split(x_financiamento, y_financiamento, test_size= 0.25, random_state= 0)
 
+print('X treino:\n', x_financiamento_treino)
+print('X teste:\n', x_financiamento_teste)
+print('Y teste:\n', y_financiamento_treino)
+print('Y treino:\n', y_financiamento_teste)
+
 # salvar em arquivo
 with open('financiamento_processado.pkl', 'wb') as f:
     pickle.dump([x_financiamento_treino, y_financiamento_treino, x_financiamento_teste, y_financiamento_teste], f)
