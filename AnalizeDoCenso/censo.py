@@ -54,9 +54,6 @@ x_censo = cod_OneHotEncoder.fit_transform(x_censo)
 print('Depois de onehot\n')
 print(x_censo)
 
-# transformar para ARRAY
-x_censo = x_censo.toarray()
-
 # Mormalizar os dados
 from sklearn.preprocessing import MinMaxScaler
 
