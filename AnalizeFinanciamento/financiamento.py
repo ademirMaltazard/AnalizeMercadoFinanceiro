@@ -73,7 +73,7 @@ print('Dado Normalizado:\n', x_financiamento)
 x_financiamento_treino, x_financiamento_teste, y_financiamento_treino, y_financiamento_teste = train_test_split(x_financiamento, y_financiamento, test_size= 0.25, random_state= 0)
 
 # salvar em arquivo
-with open('financiamento_processado.pkl', 'rb') as f:
+with open('financiamento_processado.pkl', 'wb') as f:
     pickle.dump([x_financiamento_treino, y_financiamento_treino, x_financiamento_teste, y_financiamento_teste], f)
     print('Arquivo criado com sucesso!')
 
